@@ -1,113 +1,148 @@
-// 81
-var myDog = {
-  name: "Hatiko",
-  legs: 4,
-  tails: 1,
-  friends: ["Tom", "Jerry"],
-};
-
-// 82
-var testObj = {
-  hat: "ballcap",
-  shirt: "jersey",
-  shoes: "cleats",
-};
-
-var hatValue = testObj.hat; // Change this line
-var shirtValue = testObj.shirt; // Change this line
-
-// 83
-var testObj = {
-  "an entree": "hamburger",
-  "my side": "veggies",
-  "the drink": "water",
-};
-
-var entreeValue = testObj["an entree"]; // Change this line
-var drinkValue = testObj["the drink"]; // Change this line
-
-// 84
-var testObj = {
-  12: "Namath",
-  16: "Montana",
-  19: "Unitas",
-};
-
-var playerNumber = 16; // Change this line
-var player = testObj[playerNumber]; // Change this line
-
-// 85
-var myDog = {
-  name: "Coder",
-  legs: 4,
-  tails: 1,
-  friends: ["freeCodeCamp Campers"],
-};
-
-myDog.name = "Happy Coder";
-
-// 86
-var myDog = {
-  name: "Happy Coder",
-  legs: 4,
-  tails: 1,
-  friends: ["freeCodeCamp Campers"],
-};
-
-myDog.bark = "woof";
-
-// 87
-var myDog = {
-  name: "Happy Coder",
-  legs: 4,
-  tails: 1,
-  friends: ["freeCodeCamp Campers"],
-  bark: "woof",
-};
-
-delete myDog.tails;
-
-// 88
-function phoneticLookup(val) {
-  var result = "";
-
-  const lookup = {
-    alpha: "Adams",
-    bravo: "Boston",
-    charlie: "Chicago",
-    delta: "Denver",
-    echo: "Easy",
-    foxtrot: "Frank",
-  };
-
-  result = lookup[val];
-  return result;
-}
-
-phoneticLookup("charlie");
-
-// 89
-function checkObj(obj, checkProp) {
-  if (obj.hasOwnProperty(checkProp)) {
-    return obj[checkProp];
-  }
-  return "Not Found";
-}
-
-// 90
-var myMusic = [
-  {
-    artist: "Billy Joel",
-    title: "Piano Man",
-    release_year: 1973,
-    formats: ["CD", "8T", "LP"],
-    gold: true,
+// 91
+var myStorage = {
+  car: {
+    inside: {
+      "glove box": "maps",
+      "passenger seat": "crumbs",
+    },
+    outside: {
+      trunk: "jack",
+    },
   },
+};
 
+var gloveBoxContents = myStorage.car.inside["glove box"]; // Change this line
+
+// 92
+var myPlants = [
   {
-    artist: "Michael Jackson",
-    title: "Earth's song",
-    release_year: 1992,
-    formats: ["CD", "8T", "LP"],
+    type: "flowers",
+    list: ["rose", "tulip", "dandelion"],
+  },
+  {
+    type: "trees",
+    list: ["fir", "pine", "birch"],
   },
 ];
+
+var secondTree = myPlants[1].list[1]; // Change this line
+
+// 93
+var collection = {
+  2548: {
+    albumTitle: "Slippery When Wet",
+    artist: "Bon Jovi",
+    tracks: ["Let It Rock", "You Give Love a Bad Name"],
+  },
+  2468: {
+    albumTitle: "1999",
+    artist: "Prince",
+    tracks: ["1999", "Little Red Corvette"],
+  },
+  1245: {
+    artist: "Robert Palmer",
+    tracks: [],
+  },
+  5439: {
+    albumTitle: "ABBA Gold",
+  },
+};
+
+// Only change code below this line
+function updateRecords(object, id, prop, value) {
+  if (prop !== "tracks" && value !== "") {
+    object[id][prop] = value;
+  } else if (prop === "tracks" && !object[id].hasOwnProperty("tracks")) {
+    object[id][prop] = [value];
+  } else if (prop === "tracks" && value !== "") {
+    object[id][prop].push(value);
+  } else if (value === "") {
+    delete object[id][prop];
+  }
+
+  return object;
+}
+
+console.log(updateRecords(collection, 5439, "artist", "ABBA"));
+console.log(updateRecords(collection, 2468, "tracks", "Free"));
+console.log(updateRecords(collection, 2548, "tracks", ""));
+
+// 94
+var myArray = [];
+
+let i = 5;
+
+while (i >= 0) {
+  myArray.push(i);
+  i -= 1;
+}
+
+console.log(myArray);
+
+// 95
+var myArray = [];
+
+for (let i = 1; i <= 5; i += 1) {
+  myArray.push(i);
+}
+
+console.log(myArray);
+
+// 96
+var myArray = [];
+
+for (let i = 1; i <= 9; i += 2) {
+  myArray.push(i);
+}
+
+console.log(myArray);
+
+// 97
+var myArray = [];
+
+for (let i = 9; i >= 1; i -= 2) {
+  myArray.push(i);
+}
+
+console.log(myArray);
+
+// 98
+var myArr = [2, 3, 4, 5, 6];
+
+var total = 0;
+
+for (let i = 0; i < myArr.length; i += 1) {
+  total += myArr[i];
+}
+
+console.log(total);
+
+// 99
+function multiplyAll(arr) {
+  var product = 1;
+  // Only change code below this line
+  for (let i = 0; i < arr.length; i += 1) {
+    for (let j = 0; j < arr[i].length; j += 1) {
+      product *= arr[i][j];
+    }
+  }
+  // Only change code above this line
+  return product;
+}
+
+console.log(
+  multiplyAll([
+    [1, 2],
+    [3, 4],
+    [5, 6, 7],
+  ])
+);
+
+// 100
+var myArray = [];
+var i = 10;
+
+do {
+  myArray.push(i);
+  i++;
+} while (i < 10);
